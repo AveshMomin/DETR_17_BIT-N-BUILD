@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week Prediction</title>
+</head>
+<body>
+    <h1>Week Prediction</h1>
+    <form method="post">
+        <label for="current_week">Enter Current Week:</label>
+        <input type="number" name="current_week" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+        <h2>Predictions:</h2>
+        <ul>
+            {% for pest in result %}
+                <li>{{ pest }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

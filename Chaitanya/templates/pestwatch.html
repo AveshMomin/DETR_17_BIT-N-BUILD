@@ -41,6 +41,8 @@
               <li class="nav-item px-2"><a class="nav-link fw-medium" href="/">Benefits</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-medium" href="/pestwatch">Pest Watch</a></li>              
               <li class="nav-item px-2"><a class="nav-link fw-medium" href="/weather">Weather Forecast</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-medium" href="/pestpred">Pest Prediction</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-medium" href="/week">Weekly Pest Prediction</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-medium" href="#contact">Contact </a></li>
             </ul>
           </div>
@@ -58,14 +60,19 @@
                     <input type="file" name="photo" accept="image/*">
                     <button type="submit">Upload Image</button>
                 </form>
-            
+                <br>
                 <!-- Display Uploaded Image -->
-                {% if filename %}
-                    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+                {% if pest_class and suggestion %}
+                    <p style="color: black; font-size: 24px;">Given Image has been affected by {{ pest_class }}</p>
+                    <p style="color: black; font-size: 24px;">Suggestion: Please use the below pesticide - {{ suggestion }}</p>
                 {% endif %}
             </div>
           </div>
         </div>
+
+        
+
+        
       
 <!-- <section> close ============================-->
       <!-- ============================================-->
