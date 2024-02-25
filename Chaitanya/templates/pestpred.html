@@ -55,18 +55,23 @@
             <div class="row align-items-center min-vh-75 min-vh-lg-100">
                 <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
                     <form method="POST" action="{{ url_for('predict') }}">
-                        <label for="feature1">Collection Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" name="feature1" required><br>
-                        <label for="feature2">Max Temperature:&nbsp;</label>
-                        <input type="text" name="feature2" required><br>
-                        <label for="feature3">Min Temperature:&nbsp;&nbsp;</label>
-                        <input type="text" name="feature3" required><br>
-                        <label for="feature4">RH1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" name="feature4" required><br>
-                        <label for="feature5">Geography:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" name="feature5" required><br>
-                        <button type="submit">Predict</button>
-                    </form>
+                      <label for="feature1" title="Hill numbers provide a unified framework for the three most popular groups of diversity measures">Collection Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="text" name="feature1" required><br>
+                  
+                      <label for="feature2" title="Enter the maximum temperature">Max Temperature:&nbsp;</label>
+                      <input type="text" name="feature2" required><br>
+                  
+                      <label for="feature3" title="Enter the minimum temperature">Min Temperature:&nbsp;&nbsp;</label>
+                      <input type="text" name="feature3" required><br>
+                  
+                      <label for="feature4" title="RH1 is Relative Humidity">RH1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="text" name="feature4" required><br>
+                  
+                      <label for="feature5" title="Geography is Area/Location">Geography:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="text" name="feature5" required><br>
+                  
+                      <button type="submit">Predict</button>
+                    </form> 
 
                     {% if result %}
                         <h2>Prediction Result:</h2>
@@ -74,22 +79,6 @@
                     {% endif %}
                 </div>
             </div>
-
-            <h1>Week Prediction</h1>
-            <form method="post">
-                <label for="current_week">Enter Current Week:</label>
-                <input type="number" name="current_week" required>
-                <button type="submit">Predict</button>
-            </form>
-
-            {% if result %}
-                <h2>Predictions:</h2>
-                <ul>
-                    {% for pest in result %}
-                        <li>{{ pest }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
            </div>
         </section>
         

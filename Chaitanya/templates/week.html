@@ -1,26 +1,108 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week Prediction</title>
-</head>
-<body>
-    <h1>Week Prediction</h1>
-    <form method="post">
-        <label for="current_week">Enter Current Week:</label>
-        <input type="number" name="current_week" required>
-        <button type="submit">Predict</button>
-    </form>
+<html lang="en-US" dir="ltr">
 
-    {% if result %}
-        <h2>Predictions:</h2>
-        <ul>
-            {% for pest in result %}
-                <li>{{ pest }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>DETR | Landing, Corporate &amp; Business Templatee</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicons/favicon.ico">
+    <link rel="manifest" href="static/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="static/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="static/css/theme.min.css" rel="stylesheet" />
+    <!-- Head content as provided previously -->
+</head>
+
+<body>
+    <main class="main" id="top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
+          <div class="container"><a class="navbar-brand" href="/"><img class="d-inline-block align-top img-fluid" src="static/img/gallery/logo-icon.png" alt="" width="50" /><span class="text-theme font-monospace fs-4 ps-2">DETR</span></a><button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="/">Home</a></li>
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="/">Benefits</a></li>
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="/pestwatch"">Pest Watch</a></li>              
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="/weather">Weather Forecast</a></li>
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="/pestpred">Pest Prediction</a></li>
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="/week">Weekly Pest Prediction</a></li>
+                <li class="nav-item px-2"><a class="nav-link fw-medium" href="#contact">Contact </a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <section class="py-0" id="header">
+          <div class="bg-holder d-none d-md-block" style="background-image:url(static/img/illustrations/hero-header.png);background-position:right top;background-size:contain;"></div>
+          <!--/.bg-holder-->
+          <div class="bg-holder d-md-none" style="background-image:url(static/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;"></div>
+          <!--/.bg-holder-->
+          <div class="container">
+            <div class="row align-items-center min-vh-75 min-vh-lg-100">
+                <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
+                    <h1>Week Prediction</h1>
+                    <form method="post">
+                        <label for="current_week">Enter Current Week:</label>
+                        <input type="number" name="current_week" required>
+                        <button type="submit">Predict</button>
+                    </form>
+
+                    {% if result %}
+                        <h2>Predictions:</h2>
+                        <ul>
+                            {% for i in range(result[0]|length) %}
+                                <li style="font-size: 20px;">
+                                    <strong>Pest Name:</strong> {{ result[0][i] }}
+                                    <br>
+                                    <strong>Respective Pesticides:</strong>
+                                    <ul>
+                                        {% for pesticide in result[1][i] %}
+                                            <li>{{ pesticide }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                </div>
+            </div>
+           </div>
+        </section>
+        
+  <!-- <section> close ============================-->
+        <!-- ============================================-->
+  
+        
+      </main><!-- ===============================================-->
+      <!--    End of Main Content-->
+      <!-- ===============================================-->
+  
+  
+  
+      <!-- ===============================================-->
+      <!--    JavaScripts-->
+      <!-- ===============================================-->
+      <script src="vendors/@popperjs/popper.min.js"></script>
+      <script src="vendors/bootstrap/bootstrap.min.js"></script>
+      <script src="vendors/is/is.min.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+      <script src="static/js/theme.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
 </body>
+
 </html>
