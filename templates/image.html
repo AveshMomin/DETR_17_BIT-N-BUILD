@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Process</title>
+</head>
+<body>
+    <h1>Image Upload and Process</h1>
+    <form action="/image_upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*" required>
+        <button type="submit">Upload and Process</button>
+    </form>
+    {% if pest_class and suggestion %}
+        <h2>Result</h2>
+        <p>Pest Class: {{ pest_class }}</p>
+        <p>Suggestion: {{ suggestion }}</p>
+        <img src="{{ output_image }}" alt="Output Image">
+    {% endif %}
+</body>
+</html>
